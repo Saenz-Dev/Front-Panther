@@ -1,0 +1,189 @@
+:root {
+    --color-primario: #4690ff;
+    --color-background-msj: #4690ffce;
+    --color-hr: #3f3f3f;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    height: 100vh;
+}
+
+body {
+    overflow-y: auto;
+    background: url('../img/login.png') no-repeat center center/cover;
+    margin: 0;
+    padding: 0;
+}
+
+.espacio {
+    padding: 0;
+}
+
+.login {
+    background: #cacacaec;
+    min-height: 100vh;
+    padding: 0;
+    border-right: #8f8f8f4b solid 1px;
+    border-radius: 20px;
+    width: 640px;
+    z-index: 999;
+}
+
+.row, .row div {
+    padding: 0;
+    margin: 0;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(87, 86, 86);
+}
+
+.login p {
+    color: var(--color-primario);
+    font-weight: 600;
+}
+
+hr {
+    width: 10rem;
+    margin: 0;
+    border: solid 1.3px;
+    color: var(--color-hr);
+}
+
+/* ESTILO PARA EL FORM */
+
+.input {
+    height: 50px;
+    width: 20em;
+    margin: 20px 20px 0 20px;
+}
+
+/**/
+.input::placeholder {
+    font-size: 19px;
+    opacity: .4;
+    transition: all .3s ease;
+}
+
+.input {
+    position: relative;
+}
+#label-usuario {
+    position: absolute;
+    padding: 0;
+    z-index: 9999;
+    
+}
+#label-usuario {
+    font-size: 20px;
+    color: #808080a4;
+}
+
+/**/
+
+.btn {
+    height: 50px;
+    width: 20em;
+    margin: 20px 20px 50px;
+    background-color: var(--color-primario);
+    font-weight: bold;
+}
+
+/* ESTILO DE MENSAJE */
+.mensaje, .mensaje h2 {
+    text-align: left;
+    color: white;
+}
+
+.mensaje h2, .mensaje p {
+    margin: 0;
+}
+
+.mensaje {
+    background: var(--color-background-msj);
+    width: 41em;
+    position: absolute;
+    top: 85%;
+    left: 37%;
+    border-radius: 8px;
+    z-index: -1;
+}
+
+.separator::before {
+    content: "|";
+}
+
+.text-soport {
+    font-weight: 500;
+    width: 65%;
+}
+
+.hr-btn {
+    width: 50%;
+    border: #3f3f3f solid 1px;
+}
+
+.btn-link {
+    background: none;
+    font-weight: normal;
+    text-decoration: none;
+    transition: all 0.5s ease;
+    height: auto;
+    width: auto;
+    padding: 0;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+/*  ESTILOS PARA EL MENSAJE DE ERROR  */
+.alert {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 10px 10px 10px;
+    gap: 10px;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    color: #a94442;
+    display: none;
+    width: auto;
+}
+
+.alert div {
+    text-align: left;
+}
+
+.alert a {
+    color: #ff8f8fd3;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bolder;
+    transition: all .3s ease;
+    height: auto;
+    display: flex;
+    align-items: start;
+
+}
+
+.alert a:hover {
+    color: #ff3c3c;
+}
