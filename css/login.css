@@ -16,7 +16,7 @@ body {
 
 body {
     overflow-y: auto;
-    background: url('../img/login.png') no-repeat center center/cover;
+    background: url() no-repeat center center/cover;
     margin: 0;
     padding: 0;
 }
@@ -186,4 +186,10 @@ hr {
 
 .alert a:hover {
     color: #ff3c3c;
+}
+
+.form-floating label {
+    font-weight: 500;
+    font-size: 18px;
+    opacity: .4;
 }

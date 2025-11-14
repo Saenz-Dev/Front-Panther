@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- HOJA DE ESTILO -->
+    <link rel="stylesheet" href="./css/persons.css">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Sans&family=Liter&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <title>Clarisa Software de Facturación</title>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+    <div class="loader">
+        <img src="./img/icons8-carga.gif">
+    </div>
+    <div class="wrap"></div>
+    <nav class="navbar nav-principal">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#"><img src="./img/logo.png" class="d-inline-block align-top"
+                        alt="Logo de Clarisa"></a>
+            </div>
+            <ul class="nav justify-content-center gap-4 px-3" id="nav-bar">
+                <li class="nav-item"><a class="nav-link" href="./inicio.html">Inicio</a></li>
+                <li class="nav-item active"><a class="nav-link" href="./factura.html">Facturación</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Página 2</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Página 3</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Página 4</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" href="#"><i class="bi bi-list"></i></a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#">Opcion 1</a>
+                        <a class="dropdown-item" href="#">Opcion 2</a>
+                        <a class="dropdown-item" href="#">Opcion 3</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-md-6">
+                        Personas
+                    </div>
+                    <div class="col-md-6">
+                        <button class="btn btn-primary mx-2 btn-actualizar"><i class="bi bi-arrow-clockwise"></i> Actualizar</button>
+                        <button class="btn btn-success mx-2"><i class="bi bi-person-fill-add"></i> Crear Persona</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center m-4">
+                    <table class="table text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">lastName</th>
+                                <th scope="col">phone</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-header text-center">
+                    <h5 class="mb-0">Crear Persona</h5>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="nombres" placeholder="Nombres">
+                            <label for="nombres">Nombres</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                            <label for="apellidos">Apellidos</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="number" class="form-control" id="telefono" placeholder="Teléfono">
+                            <label for="telefono">Teléfono</label>
+                        </div>
+                        <button type="button" class="btn btn-primary w-100 mb-3" id="btn-crear-persona">
+                            Crear Usuario
+                        </button>
+                        <button type="button" class="btn btn-outline-secondary w-100">
+                            Cancelar
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="alert alert-danger d-none">
+        Hola
+    </div>
+    <script src="./node_modules/jquery/dist/jquery.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./node_modules/bootstrap-icons/font/bootstrap-icons.json"></script>
+    <script src="js/crudPersons.js"></script>
+</body>
+
+</html>

@@ -7,33 +7,41 @@
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="css/responsive.css">
-    <title>Login Clarisa</title>
+    <title>Login Panther</title>
 </head>
 
 <body>
-    <div class="content-fluid">
+    <div class="content-fluid text-center">
         <div class="row">
             <div class="col-4">
                 <div class="login">
                     <h3>Iniciar sesión</h3>
                     <hr>
-                    <p>Clarisa Cloud</p>
-                    <form class="form-horizontal" id="contactForm" action="">
-                        <div class="form-group">
-                            <!-- <label for="usuario" id="label-usuario">Usuario</label> -->
-                            <input type="text" class="form-control input" id="usuario" placeholder="Usuario"
-                                name="usuario">
-                            <div class="text-center text-danger my-0 small" id="div-usuario"></div>
+                    <p>API PANTHER</p>
+                    <form class="form-floating" id="contactForm" action="">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control" id="usuario" placeholder="Usuario">
+                                    <label for="usuario">Usuario</label>
+                                    <div class="text-center text-danger my-0 small" id="div-usuario"></div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control input" id="contrasenia" placeholder="Contraseña"
-                                name="contrasenia">
-                            <div class="text-center text-danger my-0 small" id="div-contrasenia"></div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-floating mb-4">
+                                    <input type="text" class="form-control" id="contrasenia"
+                                        placeholder="Contraseña">
+                                    <label for="contrasenia">Contraseña</label>
+                                    <div class="text-center text-danger my-0 small" id="div-contrasenia"></div>
+                                </div>
+                            </div>
                         </div>
-                        <button type="button" class="btn btn-primary" id="btn-form">INGRESAR</button>
+                        <button type="button" class="btn btn-primary disabled" id="btn-form" >INGRESAR</button>
                     </form>
                     <hr class="mt-2 hr-btn">
-                    <button type="button" class="btn btn-link">¿Olvidaste tu contraseña?</button>
+                    <button type="button" class="btn btn-link ">¿Olvidaste tu contraseña?</button>
                     <div class="text-muted text-center  mx-5 px-5 text-soport">
                         <span class="text-contact">¿Necesitas soporte técnico? Comunícate a través de los siguientes
                             números:</span>
@@ -46,8 +54,8 @@
             </div>
             <div class="col-8 espacio">
                 <div class="mensaje px-4 py-3">
-                    <h2>Haz crecer tu negocio</h2>
-                    <p>Gestión de Inventarios, Facturación Electrónica, Reportes, Sistemas POS y mucho más.</p>
+                    <h2>Framework Panther PHP-OO</h2>
+                    <p> API para crear microservicios tipo restful para aplicaciones web, basado en PHP.</p>
                 </div>
             </div>
         </div>
@@ -64,6 +72,6 @@
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="module" src="js/login-service.js"></script>
-</body>   
+</body>
 
 </html>

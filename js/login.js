@@ -3,8 +3,10 @@ export function validarInput(input, event) {
     event.preventDefault();
     if ($(input).val().length < 5) {
         $(input).css("border", "red solid 2px");
+        return false;
     } else {
         $(input).css("border", "#52f052 solid 2px");
+        return true;
     }
 }
 

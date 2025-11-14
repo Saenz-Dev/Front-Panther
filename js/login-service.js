@@ -1,18 +1,18 @@
 import * as login from './login.js';
-const formulario = document.getElementById("contactForm");
-const apiUrl = "https://pru.clarisacloud.com:8443/seguridad/rest/api/v1/login/";
+const apiUrl = "http://localhost/panther/rest/login";
 
 $("#btn-form").on("click", function (event) {
     /* Convierto las entradas del Formulario en JSON */
-    const formData = new FormData(formulario);
-    const jsonData = Object.fromEntries(formData.entries());
-    let alertTime;
+    let json = {};
+    json.user = $("#usuario").val();
+    json.password = $("#contrasenia").val();
+    // console.log(json);
     const requestOptions = {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(jsonData),
+        body: JSON.stringify(json),
     }
 
     fetch(apiUrl, requestOptions)
@@ -20,12 +20,12 @@ $("#btn-form").on("click", function (event) {
             return response.json();
         })
         .then((data) => {
-            if (!data.success) {
+            // console.log(data);
+            if (data.code != 200) {
+                // console.log("Entra\n", data);
                 mostrarMensaje();
                 let titulo = $(".alert div strong");
-                let mensaje = $(".alert div p");
-                titulo.text(data.textResponse);
-                mensaje.text(data.errores.errores[0].errorMessage);
+                titulo.text(data.data);
 
                 login.validarInput("#usuario", event);
                 login.validarInput("#contrasenia", event);
@@ -35,14 +35,35 @@ $("#btn-form").on("click", function (event) {
                 login.validarContrasenia();
             }
 
-            if (data.success) {
-                localStorage.setItem('token', data.data.token);
-                localStorage.setItem('response', JSON.stringify(data));
-                window.location.href = "../inicio.html";
+            if (data.code == 200) {
+                localStorage.setItem('token', data.data.keyAPI);
+                window.location.href = "../persons.html";
             }
         })
-        .catch(error => console.error("Error", error));
+        .catch(error => console.log("Error", error));
 });
+
+$('#usuario').on("input", function(event) {
+    habilitarBoton(event);
+    login.validarUsuario();
+    login.validarContrasenia();
+});
+
+$('#contrasenia').on("input", function(event) {
+    habilitarBoton(event);
+    login.validarUsuario();
+    login.validarContrasenia();
+});
+
+function habilitarBoton( event) {
+    let usuarioVerificado = login.validarInput("#usuario", event);
+    let contraseniaVerificada = login.validarInput("#contrasenia", event);
+    if(usuarioVerificado != contraseniaVerificada || (usuarioVerificado == false && contraseniaVerificada == false)) {
+        $('#btn-form').addClass('disabled');
+        return;
+    }
+    $('#btn-form').removeClass('disabled');
+}
 
 function mostrarMensaje() {
     $(".alert").stop(true, true).fadeIn(400);
