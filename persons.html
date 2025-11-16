@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <div class="alertaGlobal" style="display: none;"></div>
     <div class="loader">
         <img src="./img/icons8-carga.gif">
     </div>
@@ -30,8 +31,8 @@
                         alt="Logo de Clarisa"></a>
             </div>
             <ul class="nav justify-content-center gap-4 px-3" id="nav-bar">
-                <li class="nav-item"><a class="nav-link" href="./inicio.html">Inicio</a></li>
-                <li class="nav-item active"><a class="nav-link" href="./factura.html">Facturación</a></li>
+                <li class="nav-item"><a class="nav-link" href="./persons.html">Gest. Personas</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#">Página 1</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Página 2</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Página 3</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Página 4</a></li>
@@ -55,8 +56,10 @@
                         Personas
                     </div>
                     <div class="col-md-6">
-                        <button class="btn btn-primary mx-2 btn-actualizar"><i class="bi bi-arrow-clockwise"></i> Actualizar</button>
-                        <button class="btn btn-success mx-2"><i class="bi bi-person-fill-add"></i> Crear Persona</button>
+                        <button class="btn btn-primary mx-2 btn-actualizar"><i class="bi bi-arrow-clockwise"></i>
+                            Actualizar</button>
+                        <button class="btn btn-success mx-2 btn-crear"><i class="bi bi-person-fill-add"></i> Crear
+                            Persona</button>
                     </div>
                 </div>
             </div>
@@ -78,41 +81,41 @@
             </div>
         </div>
     </div>
-    <div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-4">
-            <div class="card shadow">
-                <div class="card-header text-center">
-                    <h5 class="mb-0">Crear Persona</h5>
-                </div>
-                <div class="card-body">
-                    <form>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="nombres" placeholder="Nombres">
-                            <label for="nombres">Nombres</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
-                            <label for="apellidos">Apellidos</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input type="number" class="form-control" id="telefono" placeholder="Teléfono">
-                            <label for="telefono">Teléfono</label>
-                        </div>
-                        <button type="button" class="btn btn-primary w-100 mb-3" id="btn-crear-persona">
-                            Crear Usuario
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary w-100">
-                            Cancelar
-                        </button>
-                    </form>
+    <div class="container create-person" style="display: none;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card shadow">
+                    <div class="card-header text-center">
+                        <h5 class="mb-0">Crear Persona</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-floating mb-3 has-validation">
+                                <input type="text" class="form-control" id="nombres" placeholder="Nombres">
+                                <label for="nombres">Nombres</label>
+                                <div class="" id="validation-name"></div>
+                            </div>
+                            <div class="form-floating mb-3 has-validation">
+                                <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                                <label for="apellidos">Apellidos</label>
+                                <div class="" id="validation-lastname"></div>
+                            </div>
+                            <div class="form-floating mb-3 has-validation">
+                                <input type="number" class="form-control" id="telefono" placeholder="Teléfono">
+                                <label for="telefono">Teléfono</label>
+                                <div class="" id="validation-phone"></div>
+                            </div>
+                            <button type="button" class="btn btn-primary w-100 mb-3 disabled" id="btn-crear-persona">
+                                Crear Usuario
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary w-100" id="btn-cancelar-crear-persona">
+                                Salir
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-    <div class="alert alert-danger d-none">
-        Hola
     </div>
     <script src="./node_modules/jquery/dist/jquery.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

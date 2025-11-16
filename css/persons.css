@@ -41,6 +41,38 @@ body {
     } 
 }
 
+/**  ESTILOS PARA ALERTGLOBAL  **/
+
+.alertaGlobal {
+    z-index: 999999999;
+    position: fixed !important;
+    height: 60em;
+    top: 40px;
+    right: 40px;
+    padding: 10px 10px 10px 10px;
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.alert div {
+    text-align: left;
+}
+
+.alert a {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: #ff8f8fd3;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: bolder;
+    transition: all .3s ease;
+    display: flex;
+    align-items: start;
+}
+
+
+
 /**  ESTILOS PARA EL LOGO  **/
 .navbar-brand img {
     height: 120px;
@@ -137,3 +169,20 @@ body {
 .up-text {
     animation: fadeInUp 1s ease-out forwards;
 }
+
+/**  ESTILO PARA EL CUADRO DE CREAR PERSONA  **/
+
+.create-person {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    top: 0;
+    margin: 0 !important;
+    left: 13em;
+    height: 100%;
+    backdrop-filter: blur(3px);
+    will-change: backdrop-filter;
+}
+
