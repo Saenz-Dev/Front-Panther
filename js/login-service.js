@@ -37,7 +37,7 @@ $("#btn-form").on("click", function (event) {
 
             if (data.code == 200) {
                 localStorage.setItem('token', data.data.keyAPI);
-                window.location.href = "../persons.html";
+                window.location.href = "../inicio.html";
             }
         })
         .catch(error => console.log("Error", error));

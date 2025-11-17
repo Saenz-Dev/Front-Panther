@@ -103,6 +103,16 @@ body {
     background-color: #5f8affc9;
 }
 
+.active {
+    color: #ffffff;
+    background-color: #5f8affc9;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all .3s ease;
+    color: #DDE6ED;
+    border-radius: 50px;
+}
+
 .nav li a:active {
     color: #ffffff;
     background-color: #5f8affc9;
@@ -186,3 +196,22 @@ body {
     will-change: backdrop-filter;
 }
 
+/**  ESTILOS PARA LA TABLA DE PERSONAS  **/
+
+tbody {
+    height: 10em;
+    overflow-y: scroll;
+}
+
+/**  ESTILOS PARA ENLACE DE INICIO  **/
+
+.link-persons {
+    text-decoration: none;
+    color: #0004ff;
+    font-weight: bold;
+    transition: all 0.7s ease;
+}
+
+.link-persons:hover {
+    color: #000000;
+}
