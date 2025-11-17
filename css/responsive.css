@@ -4,6 +4,10 @@
         top: 80%;
         width: 30rem;
     }
+
+    #nav-bar-burguer {
+        display: none;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -23,6 +27,10 @@
         width: 90%;
         line-height: 20px;
     }
+
+    #nav-bar-burguer {
+        display: none;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
@@ -41,6 +49,20 @@
     .text-soport {
         width: 90%;
         line-height: 20px;
+    }
+
+    #nav-bar {
+        display: none;
+    }
+
+    #nav-bar-burguer {
+        display: block;
+        border: none;
+        margin-right: 60px;
+    }
+
+    .navbar-header {
+        margin-left: 50px;
     }
 }
 
@@ -62,6 +84,19 @@
         width: 60%;
         line-height: 20px;
     }
+
+    #nav-bar {
+        display: none;
+    }
+
+    #nav-bar-burguer {
+        display: block;
+        border: none;
+    }
+
+    .navbar-header {
+        margin-left: 0px;
+    }
 }
 
 @media (max-width: 575px) {
@@ -81,5 +116,18 @@
     .text-soport {
         width: 90%;
         line-height: 20px;
+    }
+
+    #nav-bar {
+        display: none;
+    }
+
+    #nav-bar-burguer {
+        display: block;
+        border: none;
+    }
+
+    .navbar-header {
+        margin-left: 0px;
     }
 }

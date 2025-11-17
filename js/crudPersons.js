@@ -45,10 +45,18 @@ function getHTTP() {
 function llenarTabla(persons) {
     let tbody = $('tbody');
     tbody.empty();
-    for (const person of persons) {
-        if (person.dateDelete == null) {
-            tbody.append(row(person.id, person.name, person.lastName, person.phone));
+    let visibleCount = 0;
+    if (Array.isArray(persons)) {
+        for (const person of persons) {
+            if (person.dateDelete == null) {
+                tbody.append(row(person.id, person.name, person.lastName, person.phone));
+                visibleCount++;
+            }
         }
+    }
+    // Update person count badge (if present)
+    if ($('#person-count').length) {
+        $('#person-count').text(visibleCount);
     }
 }
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- HOJA DE ESTILO -->
     <link rel="stylesheet" href="./css/persons.css">
+    <link rel="stylesheet" href="./css/responsive.css">
     <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,9 +20,6 @@
 </head>
 
 <body>
-    <div class="loader">
-        <img src="./img/icons8-carga.gif">
-    </div>
     <div class="wrap"></div>
     <nav class="navbar nav-principal">
         <div class="container">
@@ -32,9 +30,11 @@
             <ul class="nav justify-content-center gap-4 px-3" id="nav-bar">
                 <li class="nav-item active"><a class="nav-link" href="./inicio.html">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link" href="./persons.html">Gest. Personas</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Página 2</a></li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#">Página 2</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Página 3</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Página 4</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Página 4</a></li> -->
+            </ul>
+            <ul class="nav justify-content-center gap-4 px-3" style="display: none;" id="nav-bar-burguer">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" href="#"><i class="bi bi-list"></i></a>
@@ -47,7 +47,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
+    <div class="container mb-5">
         <div class="row justify-content-center">
             <div class="text-center col-md-7 div-welcome">
                 <h1 class="up-text">Bienvenido</h1>

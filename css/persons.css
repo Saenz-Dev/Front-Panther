@@ -3,7 +3,10 @@
     box-sizing: border-box;
 }
 
-h1, h2, h3, p {
+h1,
+h2,
+h3,
+p {
     text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
@@ -24,7 +27,7 @@ body {
     justify-content: center;
     background-color: white;
     animation: loader 2s ease-in forwards;
-    z-index: 1000;
+    z-index: 1000000000000;
 }
 
 .loader img {
@@ -33,12 +36,18 @@ body {
 }
 
 @keyframes loader {
-    0% {opacity: 1;}
-    90% {opacity: 1;}
+    0% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 1;
+    }
+
     100% {
         opacity: 0;
         display: none;
-    } 
+    }
 }
 
 /**  ESTILOS PARA ALERTGLOBAL  **/
@@ -98,6 +107,11 @@ body {
     border-radius: 50px;
 }
 
+.navbar .container .navbar-header {
+    display: flex;
+    align-items: center;
+}
+
 .nav li a:hover {
     color: #ffffff;
     background-color: #5f8affc9;
@@ -128,8 +142,17 @@ body {
 
 /** ESTILOS PARA BIENVENIDA **/
 .nav-principal {
-    padding-top: 40px !important;
+    padding-top: 25px !important;
+    position: sticky !important;
+    top: 0;
+    z-index: 99999;
 }
+
+.nav-principal div {
+    background: #0004ff9c;
+    border-radius: 20px;
+    height: 90px !important;
+} 
 
 .div-welcome {
     margin-top: 180px !important;
@@ -170,7 +193,9 @@ body {
     from {
         opacity: 0;
         transform: translateY(30px);
-    } to {
+    }
+
+    to {
         opacity: 1;
         transform: translateY(0);
     }
@@ -196,11 +221,46 @@ body {
     will-change: backdrop-filter;
 }
 
+/* Prevent horizontal growth of the create-person card */
+.create-person .card {
+    width: 460px;
+    max-width: 92vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+.create-person .card-body {
+    overflow-x: hidden; 
+}
+
+.create-person .invalid-feedback,
+.create-person .valid-feedback,
+.create-person .alert {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
 /**  ESTILOS PARA LA TABLA DE PERSONAS  **/
 
-tbody {
-    height: 10em;
-    overflow-y: scroll;
+.table-wrap {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-left: 0 !important;
+    border-radius: 8px;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    font-weight: 0;
+}
+
+thead tr th {
+    font-weight: 500 !important;
+    color: #7c7c7c !important;
 }
 
 /**  ESTILOS PARA ENLACE DE INICIO  **/
@@ -214,4 +274,110 @@ tbody {
 
 .link-persons:hover {
     color: #000000;
+}
+
+/**  TITULO DE CARD  **/
+
+.card-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+/* Person count badge next to title */
+.person-count, .btn-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 26px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: #2c2c2c;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    outline: none;
+    border: none;
+}
+
+.btn-circle {
+    position: relative;
+    left: -15px;
+    min-width: auto;
+    transition: all .3s ease;
+}
+
+.btn-circle:hover {
+    background-color: #0004ff;
+}
+
+.btn-actualizar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 40px;
+    border-radius: 60% !important;
+}
+
+.person-count {
+    background-color: #DDE6ED;
+    color: #000000;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 12px;
+}
+
+.page-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    margin: 0;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.6);
+}
+
+.page-subtitle {
+    margin: 6px 0 0 0;
+    font-size: 14px;
+    color: rgba(255,255,255,0.92);
+    font-weight: 500;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.45);
+}
+
+@media (max-width: 576px) {
+    .page-title {
+        font-size: 22px;
+    }
+    .person-count { min-width: 30px; height: 22px; font-size: 13px; }
+    .btn-circle { width: 34px; height: 34px; left: -10px; }
+}
+
+/* Footer styles */
+.site-footer {
+    background: rgba(0, 0, 0, 0.45);
+    color: rgba(255,255,255,0.95);
+    font-size: 13px;
+}
+.site-footer a {
+    color: rgba(255, 255, 255, 0.92);
+    text-decoration: underline;
+}
+.site-footer a:hover {
+    color: #cfe2ff;
+}
+
+/**  NAVBAR  **/
+
+.navbar-header {
+    margin-left: 100px;
+    background: none !important;
+}
+
+#nav-bar {
+    margin-right: 110px;
+    height: 60px;
 }
