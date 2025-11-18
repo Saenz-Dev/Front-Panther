@@ -123,7 +123,7 @@ function validarNumeroTelefonico(input, divValidation, mensajeValido, mensajeInv
 
 function validarLongitudTexto(input, divValidation, mensajeValido, mensajeInvalido) {
     const regex = /^(?=.{3,30}$)[a-zA-ZÁÉÍÓÚáéíóú\sÑñ]+(?:\s[a-zA-ZÁÉÍÓÚáéíóú\sÑñ]+)*$/;
-    if (!regex.text(input.val())) {
+    if (!regex.test(input.val())) {
         input.removeClass('is-valid').addClass('is-invalid');
         divValidation.removeClass('valid-feedback').addClass('invalid-feedback').text(mensajeInvalido);
         return false;
