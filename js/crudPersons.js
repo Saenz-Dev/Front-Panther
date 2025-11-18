@@ -96,8 +96,21 @@ function obtenerDatosCrearPersona() {
     }
 }
 
-function validarTextoVacio(input, divValidation, mensajeValido, mensajeInvalido) {
-    if (input.val().length < 3) {
+// function validarTextoVacio(input, divValidation, mensajeValido, mensajeInvalido) {
+//     if (input.val().length < 3) {
+//         input.removeClass('is-valid').addClass('is-invalid');
+//         divValidation.removeClass('valid-feedback').addClass('invalid-feedback').text(mensajeInvalido);
+//         return false;
+//     } else {
+//         input.removeClass('is-invalid').addClass('is-valid');
+//         divValidation.removeClass('invalid-feedback').addClass('valid-feedback').text(mensajeValido);
+//         return true;
+//     }
+// }
+
+function validarNumeroTelefonico(input, divValidation, mensajeValido, mensajeInvalido) {
+    const regex = /^3\d{9}$/;
+    if (!regex.test(input.val())) {
         input.removeClass('is-valid').addClass('is-invalid');
         divValidation.removeClass('valid-feedback').addClass('invalid-feedback').text(mensajeInvalido);
         return false;
@@ -108,9 +121,9 @@ function validarTextoVacio(input, divValidation, mensajeValido, mensajeInvalido)
     }
 }
 
-function validarNumeroTelefonico(input, divValidation, mensajeValido, mensajeInvalido) {
-    const regex = /^3\d{9}$/;
-    if (!regex.test(input.val())) {
+function validarLongitudTexto(input, divValidation, mensajeValido, mensajeInvalido) {
+    const regex = /^(?=.{3,30}$)[a-zA-ZÁÉÍÓÚáéíóú\sÑñ]+(?:\s[a-zA-ZÁÉÍÓÚáéíóú\sÑñ]+)*$/;
+    if (!regex.text(input.val())) {
         input.removeClass('is-valid').addClass('is-invalid');
         divValidation.removeClass('valid-feedback').addClass('invalid-feedback').text(mensajeInvalido);
         return false;
@@ -150,14 +163,14 @@ function postHTTP() {
 }
 
 function validarIngresoDatos() {
-    let nombreIsValid = validarTextoVacio($('#nombres'), $('#validation-name'), 'Estructura Válida', 'El nombre debe tener 3 letras o más');
-    let apellidoIsValid = validarTextoVacio($('#apellidos'), $('#validation-lastname'), 'Estructura Válida', 'El apellido debe tener 3 letras o más');
+    let nombreIsValid = validarLongitudTexto($('#nombres'), $('#validation-name'), 'Estructura Válida', 'El nombre debe tener entre 3-30 caracteres.');
+    let apellidoIsValid = validarLongitudTexto($('#apellidos'), $('#validation-lastname'), 'Estructura Válida', 'El apellido debe tener entre 3-30 caracteres.');
     let telefonoIsValid = validarNumeroTelefonico($('#telefono'), $('#validation-phone'), 'Estructura Válida', 'El teléfono debe iniciar con el dígito tres y nueve digitos más');
     if (nombreIsValid && apellidoIsValid && telefonoIsValid) {
         $('#btn-crear-persona').removeClass('disabled');
         $('#btn-modificar-persona').removeClass('disabled');
     }
-    if (!(nombreIsValid && apellidoIsValid && telefonoIsValid)) {
+    if (!(nombreIsValid && apellidoIsValid && telefonoIsValid)) {   
         $('#btn-crear-persona').addClass('disabled');
         $('#btn-modificar-persona').addClass('disabled');
     }
