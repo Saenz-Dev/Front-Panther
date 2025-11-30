@@ -1,5 +1,6 @@
 import * as login from './login.js';
 const apiUrl = "http://localhost/panther/rest/login";
+// const apiUrl = "https://panther.alwaysdata.net/panther/panther/rest/login";
 
 $("#btn-form").on("click", function (event) {
     /* Convierto las entradas del Formulario en JSON */
@@ -38,6 +39,7 @@ $("#btn-form").on("click", function (event) {
             if (data.code == 200) {
                 localStorage.setItem('token', data.data.keyAPI);
                 window.location.href = "../inicio.html";
+                // window.location.href = "https://panther.alwaysdata.net/Front_Panther/inicio.html";
             }
         })
         .catch(error => console.log("Error", error));

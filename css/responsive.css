@@ -5,6 +5,8 @@
         width: 30rem;
     }
 
+    /* centered by default; no horizontal offset here */
+
     #nav-bar-burguer {
         display: none;
     }
@@ -13,6 +15,12 @@
 @media (min-width: 992px) and (max-width: 1199px) {
     .login {
         width: 450px !important;
+    }
+
+    /* keep create-person centered; limit card width on medium screens */
+    .create-person .card {
+        width: 92vw !important;
+        max-width: 720px;
     }
 
     .mensaje {
@@ -97,6 +105,12 @@
     .navbar-header {
         margin-left: 0px;
     }
+
+    /* Ensure navbar has small lateral padding on small screens */
+    .nav-principal .container {
+        margin-left: 5rem !important;
+        margin-right: 1rem !important;
+    }
 }
 
 @media (max-width: 575px) {
@@ -129,5 +143,11 @@
 
     .navbar-header {
         margin-left: 0px;
+    }
+
+    /* Give the navbar breathing room on very small screens */
+    .nav-principal .container {
+        margin-left: 1rem !important;
+        margin-right: 1rem !important;
     }
 }

@@ -1,6 +1,7 @@
 /**  BOTON DE DIRECCIONAMIENTO A GESTION DE PERSONAS  **/
 $('.btn-redirec').on('click', function () {
-    window.location.href = '../persons.html';
+    // window.location.href = '../persons.html';
+    window.location.href = 'https://panther.alwaysdata.net/Front_Panther/persons.html';
 });
 
 /**  CARGAR TABLA AL CARGAR PAGINA  **/
@@ -16,7 +17,8 @@ let contadorAlert = 0;
 
 /**  CONSTANTE DE URL PARA ACCEDER A SERVICIOS RESTful  **/
 
-const apiUrl = 'http://localhost/panther/rest/persons';
+const apiUrl = 'https://panther.alwaysdata.net/panther/panther/rest/persons';
+// const apiUrl = 'http://localhost/panther/rest/persons';
 
 /**  LLAMADA A LA API CON METODO GET  **/
 
@@ -25,6 +27,10 @@ btnActualizar.on("click", function () {
 });
 
 function getHTTP() {
+    if (verificarSesionCerrada()) {
+        window.location.href = 'https://panther.alwaysdata.net/Front_Panther/login.html';
+        return;
+    }
     let requestOptions = {
         headers: {
             'Content-Type': 'application/json',
@@ -35,11 +41,13 @@ function getHTTP() {
     fetch(apiUrl, requestOptions)
         .then(response => { return response.json() })
         .then((data) => {
-            console.log(data);
+            // console.log(data);
             llenarTabla(data.data);
             mostrarMensaje(true, "Tabla actualizada.");
+            resp = data.data;
             return data.data;
         })
+        .catch(error => console.log("Error", error));;
 }
 
 function llenarTabla(persons) {
@@ -54,7 +62,6 @@ function llenarTabla(persons) {
             }
         }
     }
-    // Update person count badge (if present)
     if ($('#person-count').length) {
         $('#person-count').text(visibleCount);
     }
@@ -147,6 +154,10 @@ function resetearCrearPersona() {
 }
 
 function postHTTP() {
+    if (verificarSesionCerrada()) { 
+        window.location.href = 'https://panther.alwaysdata.net/Front_Panther/login.html'; 
+        return;
+    }
     const requestOptions = {
         method: 'POST',
         headers: {
@@ -155,11 +166,14 @@ function postHTTP() {
         },
         body: JSON.stringify(obtenerDatosCrearPersona())
     }
+    // let datosRepetidos = validarDatosRepetidos(requestOptions.body.name, requestOptions.body.lastName, requestOptions.body.phone);
+    // if (datosRepetidos) {return;}
     fetch(apiUrl, requestOptions)
         .then(response => { return response.json(); })
         .then((data) => {
-            console.log(data);
-        });
+            // console.log(data);
+        })
+        .catch(error => console.log("Error", error));;
 }
 
 function validarIngresoDatos() {
@@ -170,7 +184,7 @@ function validarIngresoDatos() {
         $('#btn-crear-persona').removeClass('disabled');
         $('#btn-modificar-persona').removeClass('disabled');
     }
-    if (!(nombreIsValid && apellidoIsValid && telefonoIsValid)) {   
+    if (!(nombreIsValid && apellidoIsValid && telefonoIsValid)) {
         $('#btn-crear-persona').addClass('disabled');
         $('#btn-modificar-persona').addClass('disabled');
     }
@@ -233,9 +247,13 @@ $(document).on('click', '.btn-modify', function () {
 });
 
 function putHTTP() {
+    if (verificarSesionCerrada()) { 
+        window.location.href = 'https://panther.alwaysdata.net/Front_Panther/login.html'; 
+        return;
+    }
     let body = obtenerDatosCrearPersona();
     body.id = parseInt($('#id').val());
-    console.log(body);
+    // console.log(body);
     $('.create-person').fadeOut(500);
     const requestOptions = {
         method: 'PUT',
@@ -245,19 +263,23 @@ function putHTTP() {
         },
         body: JSON.stringify(body)
     }
+    // let bod = JSON.parse(requestOptions.body);
+    // let datosRepetidos = validarDatosRepetidos(bod.name, bod.lastName, bod.phone);
+    // if (datosRepetidos) {return;}
     console.log(requestOptions);
     fetch(apiUrl, requestOptions)
         .then(response => { return response.json() })
         .then((data) => {
             if (data.code != 200) {
-                console.log(data);
+                // console.log(data);
                 mostrarMensaje(false, "Datos no modificados.");
                 return;
             }
             $('.create-person').fadeOut(500);
-            console.log(data);
+            // console.log(data);
             mostrarMensaje(true, "Datos modificados.");
-        });
+        })
+        .catch(error => console.log("Error", error));;
 }
 
 $('#btn-modificar-persona').on('click', function () {
@@ -277,6 +299,10 @@ $(document).on('click', '.btn-delete', function () {
 });
 
 function deleteHTTP(elemento) {
+    if (verificarSesionCerrada()) { 
+        window.location.href = 'https://panther.alwaysdata.net/Front_Panther/login.html'; 
+        return;
+    }
     let trParent = elemento.closest('.row-table');
     let body = {
         id: trParent.find('th.id').text()
@@ -293,10 +319,37 @@ function deleteHTTP(elemento) {
         .then(response => { return response.json() })
         .then(data => {
             if (data.code != 200) {
-                console.log(data);
+                // console.log(data);
                 mostrarMensaje(false, "No fue posible eliminar la persona.");
                 return;
             }
             mostrarMensaje(true, 'Persona Eliminada.');
-        });
+        })
+        .catch(error => console.log("Error", error));;
 }
+
+/**  ACCION PARA EL BOTON CERRAR SESIÓN  **/
+
+$('.nav-item-cs').on('click', function () {
+    localStorage.setItem('token', '');
+    $('#usuario').text('');
+    $('#contrasenia').text('');
+    window.location.href = 'https://panther.alwaysdata.net/Front_Panther/login.html';
+});
+
+function verificarSesionCerrada() {
+    return localStorage.getItem('token') == '';
+    // return localStorage.getItem('token') == null || localStorage.getItem('token') == '';
+}
+
+// function validarDatosRepetidos(name, lastName, phone) { 
+//     const persons = JSON.parse(getHTTP());
+//     console.log(persons);
+//     persons.forEach(element => {
+//         if (element.name === name && element.lastName === lastName && element.phone == phone) {
+//             mostrarMensaje(false, "Ya hay un usuario con estos datos.");
+//             return true;
+//         }
+//     });
+//     return false;
+// }

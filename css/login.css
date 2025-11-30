@@ -16,7 +16,7 @@ body {
 
 body {
     overflow-y: auto;
-    background: url() no-repeat center center/cover;
+    background: url('../img/login.png') no-repeat center center/cover;
     margin: 0;
     padding: 0;
 }

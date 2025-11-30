@@ -20,6 +20,28 @@
 </head>
 
 <body>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+    <div class="modal fade" tabindex="-1" id="exampleModal">
+        <div class="modal-dialog modal-sm modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <div class="modal-title text-danger col-12 text-center">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        ¿Está seguro?
+                    </div>
+                </div>
+                <div class="modal-body col-12 text-center border-0">
+                    <p class="m-0">Esta operación es irreversible.</p>
+                </div>
+                <div class="modal-footer col-12 justify-content-center border-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="alertaGlobal" style="display: none;"></div>
     <div class="loader">
         <img src="./img/icons8-carga.gif">
@@ -34,14 +56,16 @@
             <ul class="nav justify-content-center gap-4 px-3" id="nav-bar">
                 <li class="nav-item"><a class="nav-link" href="./inicio.html">Inicio</a></li>
                 <li class="nav-item active"><a class="nav-link" href="./persons.html">Gest. Personas</a></li>
+                <li class="nav-item"><a class="nav-link nav-item-cs" href="./login.html">Cerrar Sesión</a></li>
             </ul>
             <ul class="nav justify-content-center gap-4 px-3" id="nav-bar-burguer">
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false" href="#"><i class="bi bi-list"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
                         <a class="nav-link" href="./inicio.html">Inicio</a>
                         <a class="nav-link" href="./persons.html">Gest. Personas</a>
+                        <a class="nav-link nav-item-cs" href="./login.html">Cerrar Sesión</a>
                     </div>
                 </li>
             </ul>
